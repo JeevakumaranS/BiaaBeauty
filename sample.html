@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bia Beauty - Bridal Atelier | Thindal, Erode</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              serif: ['"Cormorant Garamond"', "serif"],
+              sans: ['"Plus Jakarta Sans"', "sans-serif"],
+            },
+            colors: {
+              brand: {
+                cream: "#FAF6F0",
+                ivory: "#F5EFEB",
+                gold: "#C59A4E",
+                "gold-light": "#E8CF96",
+                "gold-dark": "#8A6827",
+                charcoal: "#1A1817",
+                dark: "#11100F",
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      /* Golden Silk Gradients & Atmospheric Canvas */
+      .bg-atelier {
+        background:
+          radial-gradient(
+            circle at 18% 30%,
+            rgba(245, 222, 179, 0.45) 0%,
+            rgba(250, 246, 240, 0.95) 55%
+          ),
+          radial-gradient(
+            circle at 45% 45%,
+            rgba(232, 207, 150, 0.3) 0%,
+            transparent 60%
+          ),
+          #faf6f0;
+      }
+
+      /* Metallic Gold Shimmering Typography */
+      .gold-shimmer-text {
+        background: linear-gradient(
+          110deg,
+          #9c742a 0%,
+          #e8cf96 35%,
+          #c59a4e 60%,
+          #8a6827 100%
+        );
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: goldShimmer 7s ease-in-out infinite;
+      }
+
+      @keyframes goldShimmer {
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+      }
+
+      /* Floating Bokeh Particles */
+      .bokeh-orb {
+        position: absolute;
+        border-radius: 50%;
+        pointer-events: none;
+        filter: blur(18px);
+        opacity: 0.45;
+        animation: floatOrb 9s ease-in-out infinite alternate;
+      }
+
+      @keyframes floatOrb {
+        0% {
+          transform: translateY(0px) scale(1);
+        }
+        100% {
+          transform: translateY(-24px) scale(1.12);
+        }
+      }
+
+      /* Silk Wave SVG Ribbon */
+      .silk-wave {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        pointer-events: none;
+        opacity: 0.65;
+      }
+
+      /* Star Twinkle */
+      @keyframes twinkle {
+        0%,
+        100% {
+          opacity: 0.3;
+          transform: scale(0.85);
+        }
+        50% {
+          opacity: 0.95;
+          transform: scale(1.15) rotate(15deg);
+        }
+      }
+      .twinkle-star {
+        animation: twinkle 4s ease-in-out infinite;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-atelier text-[#2B2725] font-sans antialiased min-h-screen relative overflow-x-hidden selection:bg-[#E8CF96]/40 selection:text-[#1A1817]"
+  >
+    <!-- Ambient Golden Bokeh Particles -->
+    <div
+      class="bokeh-orb w-72 h-72 bg-[#EAD7B2] top-12 left-10"
+      style="animation-delay: 0s"
+    ></div>
+    <div
+      class="bokeh-orb w-96 h-96 bg-[#F3E3C3] top-1/3 left-1/4"
+      style="animation-delay: -3s"
+    ></div>
+    <div
+      class="bokeh-orb w-64 h-64 bg-[#DFBF82] top-2/3 left-8"
+      style="animation-delay: -5s"
+    ></div>
+
+    <!-- Decorative Sparkles -->
+    <div
+      class="twinkle-star absolute top-36 left-[34%] text-[#C59A4E]/60 text-xl pointer-events-none"
+    >
+      ✦
+    </div>
+    <div
+      class="twinkle-star absolute top-[52%] left-[22%] text-[#C59A4E]/50 text-base pointer-events-none"
+      style="animation-delay: 1.8s"
+    >
+      ✦
+    </div>
+    <div
+      class="twinkle-star absolute top-[18%] left-[62%] text-[#C59A4E]/40 text-lg pointer-events-none"
+      style="animation-delay: 2.6s"
+    >
+      ✦
+    </div>
+
+    <!-- Header / Navigation Bar -->
+    <header
+      class="w-full relative z-30 px-6 sm:px-12 py-5 flex items-center justify-between border-b border-[#E6DCCF]/60 backdrop-blur-sm bg-[#FAF6F0]/70"
+    >
+      <div class="flex items-center space-x-3.5">
+        <div
+          class="w-11 h-11 rounded-full border border-[#C59A4E]/60 flex items-center justify-center bg-[#FAF6F0] shadow-sm"
+        >
+          <span
+            class="font-serif italic font-semibold text-[#8A6827] text-base tracking-wider"
+            >BB</span
+          >
+        </div>
+        <div>
+          <h1
+            class="font-serif tracking-[0.22em] text-[#1A1817] text-lg font-semibold uppercase leading-none"
+          >
+            Bia Beauty
+          </h1>
+          <p
+            class="text-[10px] tracking-[0.25em] text-[#8A7A6D] uppercase mt-0.5"
+          >
+            Bridal Atelier • Thindal
+          </p>
+        </div>
+      </div>
+
+      <!-- Center Navigation Links -->
+      <nav
+        class="hidden md:flex items-center space-x-9 text-[11px] tracking-[0.2em] font-medium text-[#4D453E] uppercase"
+      >
+        <a href="#services" class="hover:text-[#C59A4E] transition-colors"
+          >Services</a
+        >
+        <a href="#portfolio" class="hover:text-[#C59A4E] transition-colors"
+          >Portfolio</a
+        >
+        <a href="#consultation" class="hover:text-[#C59A4E] transition-colors"
+          >Consultation</a
+        >
+        <a href="#studio" class="hover:text-[#C59A4E] transition-colors"
+          >Studio</a
+        >
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="flex items-center space-x-5">
+        <a
+          href="tel:9976855332"
+          class="hidden sm:inline-flex items-center text-xs tracking-wider text-[#4D453E] hover:text-[#1A1817] font-medium transition-colors"
+        >
+          <svg
+            class="w-3.5 h-3.5 mr-2 text-[#C59A4E]"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path
+              d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 4V3z"
+            />
+          </svg>
+          99768 55332
+        </a>
+        <button
+          class="px-5 py-2.5 rounded-md bg-[#8A6827] hover:bg-[#72541C] text-[#FAF6F0] text-xs uppercase tracking-[0.16em] font-semibold transition-all shadow-sm hover:shadow flex items-center"
+        >
+          <svg
+            class="w-3.5 h-3.5 mr-2 opacity-80"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          Book Consultation
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Hero Section -->
+    <main class="relative z-20 max-w-7xl mx-auto px-6 sm:px-12 pt-10 pb-20">
+      <div
+        class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center"
+      >
+        <!-- Left Column: Copy, Services & CTAs -->
+        <div class="lg:col-span-6 space-y-7">
+          <!-- Atelier Eyebrow Pill -->
+          <div
+            class="inline-flex items-center px-4 py-1.5 rounded-full border border-[#DBCAB3] bg-[#FAF6F0]/85 backdrop-blur-md shadow-xs text-[11px] tracking-[0.18em] uppercase text-[#6E5D4B]"
+          >
+            <span class="w-1.5 h-1.5 rounded-full bg-[#8A6827] mr-2.5"></span>
+            Haute Bridal Couture • Thindal, Erode
+          </div>
+
+          <!-- Headline -->
+          <div class="space-y-2">
+            <h2
+              class="font-serif text-5xl sm:text-6xl lg:text-[68px] leading-[1.08] tracking-tight font-normal text-[#1A1817]"
+            >
+              Some Moments Deserve
+              <span class="block italic font-light gold-shimmer-text"
+                >More Than Ordinary Care.</span
+              >
+            </h2>
+            <p
+              class="text-[#645A51] text-base leading-relaxed pt-2 max-w-xl font-light"
+            >
+              Every bride's ceremonial radiance deserves bespoke artistry
+              honoring centuries of South Indian wedding traditions,
+              hand-crafted with modern haute-couture finesse.
+            </p>
+          </div>
+
+          <!-- Interactive Service Badges -->
+          <div class="space-y-3 pt-1">
+            <div
+              class="flex items-center space-x-2 text-[10px] tracking-[0.2em] uppercase font-semibold text-[#8A7969]"
+            >
+              <span>Select Experience to Preview</span>
+              <div class="w-10 h-[1px] bg-[#D6C4AC]"></div>
+            </div>
+
+            <div class="flex flex-wrap gap-2.5" id="service-selectors">
+              <button
+                onclick="switchService('makeup')"
+                id="btn-makeup"
+                class="service-chip active px-4 py-2 rounded-full border border-[#1A1817] bg-[#1A1817] text-[#FAF6F0] text-xs tracking-wider font-medium transition-all shadow-xs flex items-center"
+              >
+                <span class="text-[#C59A4E] mr-2 text-xs">✦</span> Bridal Makeup
+              </button>
+              <button
+                onclick="switchService('hair')"
+                id="btn-hair"
+                class="service-chip px-4 py-2 rounded-full border border-[#DBCAB3] bg-[#FAF6F0]/90 hover:bg-[#FAF6F0] text-[#3A332C] text-xs tracking-wider font-medium transition-all shadow-xs flex items-center"
+              >
+                <span class="text-[#C59A4E] mr-2 text-xs">✦</span> Hair Styling
+              </button>
+              <button
+                onclick="switchService('saree')"
+                id="btn-saree"
+                class="service-chip px-4 py-2 rounded-full border border-[#DBCAB3] bg-[#FAF6F0]/90 hover:bg-[#FAF6F0] text-[#3A332C] text-xs tracking-wider font-medium transition-all shadow-xs flex items-center"
+              >
+                <span class="text-[#C59A4E] mr-2 text-xs">✦</span> Saree Draping
+              </button>
+            </div>
+
+            <!-- Dynamic Service Feature Callout -->
+            <div
+              id="service-feature-card"
+              class="p-4 rounded-xl border border-[#DECDB8] bg-white/70 backdrop-blur-sm transition-all duration-300 shadow-sm max-w-md"
+            >
+              <div class="flex justify-between items-start">
+                <div>
+                  <h4
+                    id="feature-title"
+                    class="font-serif text-lg text-[#1A1817] font-semibold"
+                  >
+                    Bridal Makeup Artistry
+                  </h4>
+                  <p
+                    id="feature-desc"
+                    class="text-xs text-[#6B6156] mt-0.5 leading-relaxed"
+                  >
+                    Flawless HD & Airbrush finish formulated for all-day
+                    Muhurtham ceremonies, highlighting natural bone structure
+                    with regal temple accents.
+                  </p>
+                </div>
+                <div class="text-right pl-3 shrink-0">
+                  <span
+                    class="text-[9px] uppercase tracking-[0.16em] text-[#8A7969] block"
+                    >Custom Look</span
+                  >
+                  <span
+                    id="feature-tag"
+                    class="font-serif font-bold text-sm text-[#8A6827]"
+                    >HD & Airbrush</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Call to Actions -->
+          <div class="flex items-center space-x-6 pt-2">
+            <button
+              class="px-7 py-3.5 rounded-full bg-[#1A1817] hover:bg-[#2C2723] text-[#FAF6F0] text-xs uppercase tracking-[0.18em] font-semibold transition-all shadow-md hover:shadow-lg flex items-center group"
+            >
+              Explore Services
+              <svg
+                class="w-3.5 h-3.5 ml-2.5 transform group-hover:translate-x-1 transition-transform"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                ></path>
+              </svg>
+            </button>
+            <a
+              href="#gallery"
+              class="font-serif italic text-base text-[#4A4036] hover:text-[#8A6827] transition-colors underline underline-offset-4 decoration-[#C59A4E]/60"
+            >
+              View Gallery
+            </a>
+          </div>
+
+          <!-- Social Proof Stats -->
+          <div
+            class="pt-4 flex items-center space-x-6 text-xs text-[#6F645A] border-t border-[#E6DCCF]/70"
+          >
+            <div class="flex items-center">
+              <span class="text-[#C59A4E] mr-1.5">★</span>
+              <span class="font-medium text-[#29231E]">4.9/5 Rating</span>
+              <span class="ml-1 text-[#8C8075]">(350+ Reviews)</span>
+            </div>
+            <div class="flex items-center">
+              <span class="text-[#C59A4E] mr-1.5">✦</span>
+              <span>Certified Luxury Masters</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Bridal Showcase Card -->
+        <div class="lg:col-span-6 relative flex justify-center lg:justify-end">
+          <div
+            class="relative w-full max-w-[490px] aspect-[4/5] rounded-[34px] p-2 bg-gradient-to-b from-[#F2E4C9] via-white to-[#E8D9BD] shadow-2xl transition-transform hover:scale-[1.01] duration-500"
+          >
+            <div
+              class="w-full h-full rounded-[28px] overflow-hidden relative bg-[#FAF6F0]"
+            >
+              <!-- Active Bridal Look Image (Replace src with your asset URL) -->
+              <img
+                id="bridal-showcase-img"
+                src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1000&q=80"
+                alt="South Indian Bridal Artistry - Bia Beauty"
+                class="w-full h-full object-cover object-center transition-opacity duration-500 ease-in-out"
+              />
+
+              <!-- Gradient Shade for Caption Legibility -->
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-[#11100F]/70 via-transparent to-transparent"
+              ></div>
+
+              <!-- Top Floating Availability Badge -->
+              <div
+                class="absolute top-4 left-4 inline-flex items-center px-3.5 py-1.5 rounded-full bg-white/85 backdrop-blur-md border border-white/60 shadow-sm"
+              >
+                <span
+                  class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse mr-2"
+                ></span>
+                <span
+                  class="text-[10px] tracking-[0.16em] uppercase font-semibold text-[#302B25]"
+                  >2025 Muhurtham Slots Open</span
+                >
+              </div>
+
+              <!-- Bottom Floating Showcase Badge -->
+              <div
+                class="absolute bottom-4 inset-x-4 p-4 rounded-2xl bg-white/90 backdrop-blur-md border border-white/70 shadow-lg flex items-center justify-between"
+              >
+                <div>
+                  <span
+                    class="text-[9px] uppercase tracking-[0.2em] font-semibold text-[#8C7C6B] block"
+                    >Curated Signature</span
+                  >
+                  <p
+                    id="badge-title"
+                    class="font-serif text-[#1C1814] text-base font-semibold"
+                  >
+                    Muhurtham Bridal Glamour
+                  </p>
+                </div>
+                <div class="text-right">
+                  <span class="text-xs font-semibold text-[#8A6827]">850+</span>
+                  <span
+                    class="text-[9px] uppercase tracking-wider text-[#8A7C6E] block"
+                    >Brides Adorned</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Interactive Switcher Script -->
+    <script>
+      const serviceData = {
+        makeup: {
+          title: "Bridal Makeup Artistry",
+          desc: "Flawless HD & Airbrush finish formulated for all-day Muhurtham ceremonies, highlighting natural bone structure with regal temple accents.",
+          tag: "HD & Airbrush",
+          badge: "Muhurtham Bridal Glamour",
+          img: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1000&q=80",
+        },
+        hair: {
+          title: "Haute Hair & Mogra Jada",
+          desc: "Sculpted traditional braids interlaced with fresh fragrant mogra flowers, golden temple hair jadas, and ornate bespoke crowns.",
+          tag: "Temple Jada",
+          badge: "Traditional Mogra Jada",
+          img: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=1000&q=80",
+        },
+        saree: {
+          title: "Imperial Saree Pleating & Draping",
+          desc: "Razor-sharp, crease-free handloom Kanchipuram silk pleating pinned to perfection for ease of movement across sacred rituals.",
+          tag: "Iron Pleating",
+          badge: "Kanchipuram Silk Draping",
+          img: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=1000&q=80",
+        },
+      };
+
+      function switchService(serviceKey) {
+        const data = serviceData[serviceKey];
+        if (!data) return;
+
+        // Update Active Button Styles
+        document.querySelectorAll(".service-chip").forEach((btn) => {
+          btn.classList.remove(
+            "bg-[#1A1817]",
+            "text-[#FAF6F0]",
+            "border-[#1A1817]",
+          );
+          btn.classList.add(
+            "bg-[#FAF6F0]/90",
+            "text-[#3A332C]",
+            "border-[#DBCAB3]",
+          );
+        });
+        const activeBtn = document.getElementById("btn-" + serviceKey);
+        activeBtn.classList.remove(
+          "bg-[#FAF6F0]/90",
+          "text-[#3A332C]",
+          "border-[#DBCAB3]",
+        );
+        activeBtn.classList.add(
+          "bg-[#1A1817]",
+          "text-[#FAF6F0]",
+          "border-[#1A1817]",
+        );
+
+        // Smooth Update for Content
+        document.getElementById("feature-title").innerText = data.title;
+        document.getElementById("feature-desc").innerText = data.desc;
+        document.getElementById("feature-tag").innerText = data.tag;
+        document.getElementById("badge-title").innerText = data.badge;
+
+        // Crossfade Image
+        const img = document.getElementById("bridal-showcase-img");
+        img.style.opacity = "0.35";
+        setTimeout(() => {
+          img.src = data.img;
+          img.style.opacity = "1";
+        }, 180);
+      }
+    </script>
+  </body>
+</html>
