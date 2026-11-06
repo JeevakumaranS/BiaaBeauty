@@ -92,12 +92,12 @@ export default function App() {
         )}
       </AnimatePresence>
 
-      {/* Floating WhatsApp Action Button (Mobile View, Bottom Right) */}
+      {/* Floating WhatsApp Action Button (All Views, Bottom Right) */}
       <a
         href="https://wa.me/919976855732?text=Hello%20BIAA%20BEAUTY%2C%20I%20would%20like%20to%20inquire%20about%20bridal%20services%20in%20Erode."
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-5 right-5 z-40 md:hidden w-12 h-12 rounded-full border-2 border-white bg-[#25D366] text-white flex items-center justify-center shadow-[0_4px_12px_rgba(37,211,102,0.28)] hover:bg-[#20BD5A] active:scale-[0.97] transition-colors duration-150 cursor-pointer"
+        className="fixed bottom-5 right-5 z-40 w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white bg-[#25D366] text-white flex items-center justify-center shadow-[0_4px_12px_rgba(37,211,102,0.28)] hover:bg-[#20BD5A] active:scale-[0.97] transition-colors duration-150 cursor-pointer"
         aria-label="Chat on WhatsApp with BIAA BEAUTY"
       >
         {/* Crisp Authentic Two-Color WhatsApp Logo */}

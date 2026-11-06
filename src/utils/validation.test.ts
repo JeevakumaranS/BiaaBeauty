@@ -28,9 +28,10 @@ test('cleanIndianPhoneNumber normalizes prefixes', () => {
 
 test('validatePhoneNumber validates Indian 10-digit mobile numbers', () => {
   assert.equal(validatePhoneNumber('9976855732').isValid, true);
-  assert.equal(validatePhoneNumber('+91 98421 12345').isValid, true);
+  assert.equal(validatePhoneNumber('+91 98421 12345').isValid, false);
   assert.equal(validatePhoneNumber('12345').isValid, false);
   assert.equal(validatePhoneNumber('1234567890').isValid, false); // doesn't start with 6-9
+  assert.equal(validatePhoneNumber('99768557321').isValid, false);
   assert.equal(validatePhoneNumber('abcdefghij').isValid, false);
 });
 

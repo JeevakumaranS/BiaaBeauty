@@ -50,13 +50,12 @@ export function validatePhoneNumber(phone: string): { isValid: boolean; error?: 
   if (!trimmed) {
     return { isValid: false, error: 'Phone number is required.' };
   }
-  const cleaned = cleanIndianPhoneNumber(trimmed);
   // Standard 10-digit Indian mobile number starting with 6, 7, 8, or 9
   const indianMobileRegex = /^[6-9]\d{9}$/;
-  if (!indianMobileRegex.test(cleaned)) {
+  if (!indianMobileRegex.test(trimmed)) {
     return {
       isValid: false,
-      error: 'Please enter a valid 10-digit Indian phone number (starting with 6-9).',
+      error: 'Please enter exactly 10 digits for an Indian mobile number (starting with 6-9).',
     };
   }
   return { isValid: true };

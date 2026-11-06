@@ -109,7 +109,13 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    const updatedValue =
+      name === "phoneNumber"
+        ? value.replace(/\D/g, "").slice(0, 10)
+        : name === "eventDate"
+          ? value.replace(/^(\d{4})\d+(-\d{2}-\d{2})$/, "$1$2")
+          : value;
+    setFormData((prev) => ({ ...prev, [name]: updatedValue }));
 
     if (errors[name as keyof ValidationErrors]) {
       setErrors((prev) => ({ ...prev, [name]: undefined }));
@@ -375,7 +381,9 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
                         name="phoneNumber"
                         value={formData.phoneNumber}
                         onChange={handleInputChange}
-                        placeholder="10-digit mobile (e.g. 99768 55732)"
+                        inputMode="numeric"
+                        maxLength={10}
+                        placeholder="10-digit mobile (e.g. 9976855732)"
                         className={`w-full pl-10 pr-3.5 py-2.5 bg-white hover:bg-[#FAF8F5] focus:bg-white rounded-xl border text-xs text-[#292824] placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#C49E60]/30 focus:border-[#C49E60] transition-all ${
                           errors.phoneNumber
                             ? "border-rose-400 ring-1 ring-rose-300"
