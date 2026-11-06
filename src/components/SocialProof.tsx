@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
   Instagram,
@@ -149,6 +149,42 @@ type CategoryFilter =
 export const SocialProof: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<CategoryFilter>("All");
   const [visibleCount, setVisibleCount] = useState<number>(6);
+  const [activeReviewIndex, setActiveReviewIndex] = useState<number>(0);
+  const [isReviewPaused, setIsReviewPaused] = useState<boolean>(false);
+  const touchStartX = useRef<number | null>(null);
+
+  // Auto-move mobile review from right to left in a continuous loop
+  useEffect(() => {
+    if (isReviewPaused) return;
+    const timer = setInterval(() => {
+      setActiveReviewIndex((prev) => (prev + 1) % TESTIMONIALS.length);
+    }, 4500);
+    return () => clearInterval(timer);
+  }, [isReviewPaused]);
+
+  const handleReviewTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+    setIsReviewPaused(true);
+  };
+
+  const handleReviewTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current !== null) {
+      const diff = touchStartX.current - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) {
+        if (diff > 0) {
+          // Swipe left -> advance to next
+          setActiveReviewIndex((prev) => (prev + 1) % TESTIMONIALS.length);
+        } else {
+          // Swipe right -> go to previous
+          setActiveReviewIndex(
+            (prev) => (prev - 1 + TESTIMONIALS.length) % TESTIMONIALS.length
+          );
+        }
+      }
+      touchStartX.current = null;
+    }
+    setIsReviewPaused(false);
+  };
 
   const handleCategoryChange = (cat: CategoryFilter) => {
     setActiveCategory(cat);
@@ -168,7 +204,7 @@ export const SocialProof: React.FC = () => {
   return (
     <section
       id="portfolio"
-      className="py-20 md:py-28 bg-[#FAF8F5] border-b border-[#E8E2D5] relative overflow-hidden"
+      className="py-12 md:py-28 bg-[#FAF8F5] border-b border-[#E8E2D5] relative overflow-hidden"
     >
       {/* Background Watermark Crest */}
       <div className="absolute -left-20 top-24 opacity-[0.05] pointer-events-none select-none hidden md:block">
@@ -184,12 +220,12 @@ export const SocialProof: React.FC = () => {
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header & Direct Instagram Link */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 mb-8 md:mb-12">
           <div className="max-w-2xl">
             <h2 className="font-serif-luxury text-3xl sm:text-4xl lg:text-5xl font-normal text-[#292824] tracking-tight">
               Curated Bridal Lookbook
             </h2>
-            <p className="font-serif-luxury text-sm sm:text-base text-[#524B42] mt-2.5 leading-relaxed">
+            <p className="font-serif-luxury text-sm sm:text-base text-[#524B42] mt-2 sm:mt-2.5 leading-relaxed">
               Explore real Muhurtham, reception, and engagement artistry styled
               by BIAA BEAUTY. Every drape, braid, and finish documented in
               authentic perfection.
@@ -200,7 +236,7 @@ export const SocialProof: React.FC = () => {
             href="https://www.instagram.com/beautybiaa"
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2.5 px-5 py-3 text-xs font-semibold uppercase tracking-wider text-[#292824] bg-white hover:text-white hover:bg-gradient-to-r hover:from-[#BFA054] hover:via-[#B89243] hover:to-[#A37B30] rounded-xl transition-all duration-300 shadow-2xs hover:shadow-[0_0_24px_rgba(196,158,96,0.35)] hover:scale-[1.02] active:scale-[0.98] border border-[#E8E2D5] hover:border-[#C49E60] cursor-pointer shrink-0"
+            className="group inline-flex items-center gap-2.5 px-4 sm:px-5 py-2.5 sm:py-3 text-xs font-semibold uppercase tracking-wider text-[#292824] bg-white hover:text-white hover:bg-gradient-to-r hover:from-[#BFA054] hover:via-[#B89243] hover:to-[#A37B30] rounded-xl transition-all duration-300 shadow-2xs hover:shadow-[0_0_24px_rgba(196,158,96,0.35)] hover:scale-[1.02] active:scale-[0.98] border border-[#E8E2D5] hover:border-[#C49E60] cursor-pointer shrink-0 self-start md:self-auto"
           >
             <Instagram className="w-4 h-4 text-[#8C7449] group-hover:text-white transition-colors duration-200" />
             <span className="transition-colors duration-200">
@@ -210,8 +246,8 @@ export const SocialProof: React.FC = () => {
           </a>
         </div>
 
-        {/* Modern Tab Navigation (No Capsules, Fluid Animated Transition) */}
-        <div className="flex flex-wrap items-center gap-6 sm:gap-8 mb-10 pb-2.5 border-b border-[#E8E2D5]">
+        {/* Modern Tab Navigation (Horizontally swipeable on mobile, fluid on desktop) */}
+        <div className="flex overflow-x-auto no-scrollbar sm:flex-wrap items-center gap-5 sm:gap-8 mb-6 md:mb-10 pb-2.5 border-b border-[#E8E2D5]">
           {(
             [
               "All",
@@ -225,7 +261,7 @@ export const SocialProof: React.FC = () => {
               <button
                 key={cat}
                 onClick={() => handleCategoryChange(cat)}
-                className={`relative pb-2 text-xs sm:text-sm uppercase tracking-[0.18em] transition-colors duration-200 cursor-pointer font-serif-luxury ${
+                className={`relative pb-2 text-xs sm:text-sm uppercase tracking-[0.16em] sm:tracking-[0.18em] transition-colors duration-200 cursor-pointer font-serif-luxury whitespace-nowrap shrink-0 ${
                   isActive
                     ? "text-[#292824] font-semibold"
                     : "text-[#8C7449] hover:text-[#292824] font-medium"
@@ -246,10 +282,10 @@ export const SocialProof: React.FC = () => {
           })}
         </div>
 
-        {/* Portfolio Cards Grid */}
+        {/* Portfolio Cards Grid (2-Column Compact on Mobile, 3-Column on Desktop) */}
         <motion.div
           layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 mb-12"
+          className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-7 mb-8 md:mb-12"
         >
           <AnimatePresence mode="popLayout">
             {visibleItems.map((item, idx) => {
@@ -267,7 +303,7 @@ export const SocialProof: React.FC = () => {
                     scale: { duration: 0.4, ease: [0.16, 1, 0.3, 1] },
                     y: { duration: 0.35, ease: [0.16, 1, 0.3, 1] },
                   }}
-                  className="bg-[#FCFAF7] rounded-3xl border border-[#E8E2D5] overflow-hidden shadow-xs hover:shadow-[0_24px_48px_-12px_rgba(196,158,96,0.25)] hover:border-[#C49E60]/70 group transition-all duration-500 relative aspect-[4/5] sm:aspect-[3/4] cursor-pointer"
+                  className="bg-[#FCFAF7] rounded-2xl md:rounded-3xl border border-[#E8E2D5] overflow-hidden shadow-xs hover:shadow-[0_24px_48px_-12px_rgba(196,158,96,0.25)] hover:border-[#C49E60]/70 group transition-all duration-500 relative aspect-[3/4] sm:aspect-[3/4] cursor-pointer"
                 >
                   {/* Photo with Shimmer, Zoom & Gradient Scrim */}
                   <img
@@ -284,14 +320,14 @@ export const SocialProof: React.FC = () => {
                   <div className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-[350%] transition-transform duration-1000 ease-out pointer-events-none" />
 
                   {/* Subtle Inner Glow Border */}
-                  <div className="absolute inset-0 rounded-3xl border border-white/20 pointer-events-none" />
+                  <div className="absolute inset-0 rounded-2xl md:rounded-3xl border border-white/20 pointer-events-none" />
 
                   {/* In-Image Text Overlay: Category & Title Only */}
-                  <div className="absolute bottom-0 inset-x-0 p-6 sm:p-7 text-white pointer-events-none flex flex-col justify-end">
-                    <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-[0.2em] text-[#F3D799] drop-shadow-sm mb-1.5">
+                  <div className="absolute bottom-0 inset-x-0 p-3 sm:p-7 text-white pointer-events-none flex flex-col justify-end">
+                    <span className="text-[9px] sm:text-xs font-semibold uppercase tracking-[0.14em] sm:tracking-[0.2em] text-[#F3D799] drop-shadow-sm mb-0.5 sm:mb-1.5">
                       {item.category}
                     </span>
-                    <h4 className="font-serif-luxury text-xl sm:text-2xl font-normal tracking-tight text-white drop-shadow-md leading-snug">
+                    <h4 className="font-serif-luxury text-xs sm:text-2xl font-normal tracking-tight text-white drop-shadow-md leading-tight sm:leading-snug line-clamp-2">
                       {item.title}
                     </h4>
                   </div>
@@ -303,10 +339,10 @@ export const SocialProof: React.FC = () => {
 
         {/* View More Button (Shows next 6 items when available) */}
         {hasMore && (
-          <div className="flex justify-center -mt-4 mb-20">
+          <div className="flex justify-center -mt-2 mb-12 md:mb-20">
             <button
               onClick={() => setVisibleCount((prev) => prev + 6)}
-              className="group inline-flex items-center gap-2.5 px-8 py-3.5 text-xs font-semibold uppercase tracking-wider text-[#292824] bg-white hover:text-white hover:bg-gradient-to-r hover:from-[#BFA054] hover:via-[#B89243] hover:to-[#A37B30] rounded-xl transition-all duration-300 shadow-2xs hover:shadow-[0_0_24px_rgba(196,158,96,0.35)] hover:scale-[1.02] active:scale-[0.98] border border-[#E8E2D5] hover:border-[#C49E60] cursor-pointer"
+              className="group inline-flex items-center gap-2.5 px-6 sm:px-8 py-3 sm:py-3.5 text-xs font-semibold uppercase tracking-wider text-[#292824] bg-white hover:text-white hover:bg-gradient-to-r hover:from-[#BFA054] hover:via-[#B89243] hover:to-[#A37B30] rounded-xl transition-all duration-300 shadow-2xs hover:shadow-[0_0_24px_rgba(196,158,96,0.35)] hover:scale-[1.02] active:scale-[0.98] border border-[#E8E2D5] hover:border-[#C49E60] cursor-pointer"
             >
               <span>View More</span>
               <span className="text-[11px] text-[#8C7449] group-hover:text-white/90">
@@ -317,23 +353,90 @@ export const SocialProof: React.FC = () => {
           </div>
         )}
 
-        {/* Real Testimonial Quotes */}
-        <div className="bg-[#FCFAF7] rounded-3xl border border-[#E8E2D5] p-8 sm:p-12 shadow-sm relative overflow-hidden">
-          <div className="text-center max-w-2xl mx-auto mb-10">
-            <div className="flex items-center justify-center gap-1 text-[#C49E60] mb-3">
+        {/* Real Testimonial Quotes (Swipeable on Mobile, 3-Col on Desktop) */}
+        <div className="bg-[#FCFAF7] rounded-2xl md:rounded-3xl border border-[#E8E2D5] p-5 sm:p-12 shadow-sm relative overflow-hidden">
+          <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-10">
+            <div className="flex items-center justify-center gap-1 text-[#C49E60] mb-2 sm:mb-3">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="w-4 h-4 fill-[#C49E60]" />
               ))}
             </div>
-            <h3 className="font-serif-luxury text-2xl sm:text-3xl font-normal text-[#292824] tracking-tight">
+            <h3 className="font-serif-luxury text-xl sm:text-3xl font-normal text-[#292824] tracking-tight">
               Love Notes From Our Brides
             </h3>
-            <p className="text-xs text-[#8C7449] mt-2 uppercase tracking-widest font-semibold">
+            <p className="text-[11px] sm:text-xs text-[#8C7449] mt-1 sm:mt-2 uppercase tracking-widest font-semibold">
               Uncompromising Dedication · Documented Trust
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Mobile View: Full-Width Review Completely on Screen, Auto-Moving Right-To-Left in a Loop */}
+          <div
+            className="md:hidden relative w-full overflow-hidden"
+            onTouchStart={handleReviewTouchStart}
+            onTouchEnd={handleReviewTouchEnd}
+            onMouseEnter={() => setIsReviewPaused(true)}
+            onMouseLeave={() => setIsReviewPaused(false)}
+          >
+            <div className="relative min-h-[220px] flex items-center">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeReviewIndex}
+                  initial={{ opacity: 0, x: 80 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -80 }}
+                  transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                  className="w-full bg-[#F8F5EE] rounded-2xl border border-[#E8E2D5] p-5 sm:p-6 shadow-2xs flex flex-col justify-between relative overflow-hidden"
+                >
+                  {/* Subtle Testimonial Card Watermark */}
+                  <div className="absolute -right-6 -bottom-6 opacity-[0.08] pointer-events-none select-none">
+                    <img
+                      src="/assets/aistudio/logo-without-bg.png"
+                      alt=""
+                      className="w-32 h-32 object-contain"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src =
+                          "/assets/aistudio/logo-high-res_e4f326c0.png";
+                      }}
+                    />
+                  </div>
+                  <p className="text-xs sm:text-sm text-[#4A453E] leading-relaxed italic mb-4 relative z-10">
+                    “{TESTIMONIALS[activeReviewIndex].quote}”
+                  </p>
+                  <div className="pt-3 border-t border-[#E8E2D5] relative z-10">
+                    <div className="font-semibold text-xs sm:text-sm text-[#292824]">
+                      {TESTIMONIALS[activeReviewIndex].bride}
+                    </div>
+                    <div className="text-[11px] sm:text-xs text-[#8C7449] font-medium">
+                      {TESTIMONIALS[activeReviewIndex].event}
+                    </div>
+                    <div className="mt-2 inline-flex items-center gap-1 text-[10px] font-semibold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+                      <CheckCircle className="w-3 h-3 text-emerald-600" />
+                      <span>{TESTIMONIALS[activeReviewIndex].verified}</span>
+                    </div>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
+            {/* Mobile Carousel Indicators (Progress Dots) */}
+            <div className="flex items-center justify-center gap-2 mt-4">
+              {TESTIMONIALS.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setActiveReviewIndex(i)}
+                  className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
+                    activeReviewIndex === i
+                      ? "w-6 bg-gradient-to-r from-[#BFA054] to-[#A37B30]"
+                      : "w-1.5 bg-[#D8CEBA] hover:bg-[#C49E60]/60"
+                  }`}
+                  aria-label={`Go to review ${i + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Desktop Web View: Unchanged 3-Column Grid */}
+          <div className="hidden md:grid md:grid-cols-3 md:gap-6">
             {TESTIMONIALS.map((t, idx) => (
               <div
                 key={idx}

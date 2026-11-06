@@ -31,7 +31,7 @@ export const ContactHub: React.FC = () => {
   return (
     <section
       id="contact"
-      className="py-20 md:py-28 bg-[#FAF8F5] border-b border-[#E8E2D5] relative overflow-hidden"
+      className="py-12 md:py-28 bg-[#FAF8F5] border-b border-[#E8E2D5] relative overflow-hidden"
     >
       {/* Delicate Section Background Watermark */}
       <div className="absolute -left-16 top-16 opacity-[0.05] pointer-events-none select-none hidden md:block">
@@ -47,13 +47,13 @@ export const ContactHub: React.FC = () => {
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-14">
+        <div className="text-center max-w-2xl mx-auto mb-8 md:mb-14">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="flex items-center justify-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#8C7449] mb-3"
+            className="flex items-center justify-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#8C7449] mb-2 sm:mb-3"
           >
             <Sparkles className="w-3.5 h-3.5 text-[#C49E60]" />
             <span>Studio Location & Directions</span>
@@ -74,7 +74,7 @@ export const ContactHub: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-xs sm:text-sm text-[#68625B] mt-3 leading-relaxed max-w-xl mx-auto"
+            className="text-xs sm:text-sm text-[#68625B] mt-2 sm:mt-3 leading-relaxed max-w-xl mx-auto"
           >
             Located in Thindal, Erode. We warmly welcome brides-to-be by prior
             appointment for personalized trials, shade consultations, and saree
@@ -83,12 +83,12 @@ export const ContactHub: React.FC = () => {
         </div>
 
         {/* 2-Column: Google Map View (Left) & Studio Address Hub (Right) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
           
           {/* Left Column: Interactive Google Map View (7 Cols) */}
-          <div className="lg:col-span-7 bg-[#FCFAF7] rounded-3xl border border-[#E8E2D5] overflow-hidden shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col min-h-[460px] lg:min-h-[520px]">
+          <div className="lg:col-span-7 bg-[#FCFAF7] rounded-3xl border border-[#E8E2D5] overflow-hidden shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col min-h-[340px] lg:min-h-[520px]">
             {/* Embedded Google Maps Frame */}
-            <div className="relative w-full flex-1 min-h-[400px] lg:min-h-[460px] bg-[#F4EFE6]">
+            <div className="relative w-full flex-1 h-64 sm:h-80 lg:min-h-[460px] bg-[#F4EFE6]">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3911.8967912423717!2d77.6763188!3d11.3164038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba96fcce0ddfb3d%3A0xf36fd1de1e28e611!2sBiaa%20Beauty%20Makeup%20Studio!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin"
                 width="100%"
@@ -103,7 +103,7 @@ export const ContactHub: React.FC = () => {
             </div>
 
             {/* Map Bottom Status Bar */}
-            <div className="p-4 bg-white border-t border-[#E8E2D5] flex flex-wrap items-center justify-between gap-3 text-xs">
+            <div className="p-3.5 sm:p-4 bg-white border-t border-[#E8E2D5] flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 text-xs">
               <div className="flex items-center gap-2 text-[#292824] font-medium">
                 <MapPin className="w-4 h-4 text-[#C49E60] shrink-0" />
                 <span>BIAA BEAUTY Makeup Studio · Thindal, Erode</span>
@@ -121,7 +121,7 @@ export const ContactHub: React.FC = () => {
           </div>
 
           {/* Right Column: Studio Address & Connectivity Hub (5 Cols) */}
-          <div className="lg:col-span-5 bg-[#FCFAF7] rounded-3xl border border-[#E8E2D5] p-7 sm:p-9 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative overflow-hidden">
+          <div className="lg:col-span-5 bg-[#FCFAF7] rounded-3xl border border-[#E8E2D5] p-5 sm:p-9 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative overflow-hidden">
             {/* Delicate Watermark Logo */}
             <div className="absolute -right-10 -bottom-10 opacity-15 pointer-events-none select-none">
               <img
