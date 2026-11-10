@@ -78,18 +78,6 @@ export const ServicesMatrix: React.FC<ServicesMatrixProps> = ({
       id="services"
       className="py-12 md:py-28 bg-[#FAF8F5] border-b border-[#E8E2D5] relative overflow-hidden"
     >
-      {/* Background Watermark Crest */}
-      <div className="absolute -right-20 top-16 opacity-[0.06] pointer-events-none select-none hidden md:block">
-        <img
-          src="/assets/aistudio/logo-without-bg.png"
-          alt=""
-          className="w-96 h-96 object-contain"
-          onError={(e) => {
-            (e.target as HTMLImageElement).src =
-              "/assets/aistudio/logo-high-res_e4f326c0.png";
-          }}
-        />
-      </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-8 md:mb-16">
@@ -116,18 +104,6 @@ export const ServicesMatrix: React.FC<ServicesMatrixProps> = ({
                 transition={{ duration: 0.5, delay: index * 0.15 }}
                 className="w-[calc(100vw-2rem)] shrink-0 snap-center md:w-auto md:min-w-0 md:shrink bg-[#FCFAF7] rounded-3xl border border-[#E8E2D5] overflow-hidden shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:border-[#C49E60]/60 relative"
               >
-                {/* Subtle Card Watermark Crest */}
-                <div className="absolute -right-8 -bottom-8 opacity-[0.08] pointer-events-none select-none">
-                  <img
-                    src="/assets/aistudio/logo-without-bg.png"
-                    alt=""
-                    className="w-48 h-48 object-contain"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).src =
-                        "/assets/aistudio/logo-high-res_e4f326c0.png";
-                    }}
-                  />
-                </div>
                 <div>
                   {/* Card Visual Header Image */}
                   <div className="relative h-48 sm:h-64 w-full overflow-hidden bg-[#F4EFE6]">

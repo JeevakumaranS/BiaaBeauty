@@ -12,18 +12,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateToSection }) => {
 
   return (
     <footer className="bg-white border-t border-[#E8E2D5] pt-16 pb-24 md:pb-16 text-[#292824] relative overflow-hidden">
-      {/* Delicate Ambient Watermark Logo */}
-      <div className="absolute -right-12 -bottom-12 opacity-[0.05] pointer-events-none select-none hidden sm:block">
-        <img
-          src="/assets/aistudio/logo-without-bg.png"
-          alt=""
-          className="w-72 h-72 object-contain"
-          onError={(e) => {
-            (e.target as HTMLImageElement).src =
-              "/assets/aistudio/logo-high-res_e4f326c0.png";
-          }}
-        />
-      </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer Row */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-[#E8E2D5]">

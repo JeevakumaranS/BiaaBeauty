@@ -206,18 +206,6 @@ export const SocialProof: React.FC = () => {
       id="portfolio"
       className="py-12 md:py-28 bg-[#FAF8F5] border-b border-[#E8E2D5] relative overflow-hidden"
     >
-      {/* Background Watermark Crest */}
-      <div className="absolute -left-20 top-24 opacity-[0.05] pointer-events-none select-none hidden md:block">
-        <img
-          src="/assets/aistudio/logo-without-bg.png"
-          alt=""
-          className="w-96 h-96 object-contain"
-          onError={(e) => {
-            (e.target as HTMLImageElement).src =
-              "/assets/aistudio/logo-high-res_e4f326c0.png";
-          }}
-        />
-      </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header & Direct Instagram Link */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 mb-8 md:mb-12">
@@ -387,18 +375,6 @@ export const SocialProof: React.FC = () => {
                   transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
                   className="w-full bg-[#F8F5EE] rounded-2xl border border-[#E8E2D5] p-5 sm:p-6 shadow-2xs flex flex-col justify-between relative overflow-hidden"
                 >
-                  {/* Subtle Testimonial Card Watermark */}
-                  <div className="absolute -right-6 -bottom-6 opacity-[0.08] pointer-events-none select-none">
-                    <img
-                      src="/assets/aistudio/logo-without-bg.png"
-                      alt=""
-                      className="w-32 h-32 object-contain"
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).src =
-                          "/assets/aistudio/logo-high-res_e4f326c0.png";
-                      }}
-                    />
-                  </div>
                   <p className="text-xs sm:text-sm text-[#4A453E] leading-relaxed italic mb-4 relative z-10">
                     “{TESTIMONIALS[activeReviewIndex].quote}”
                   </p>
@@ -442,18 +418,6 @@ export const SocialProof: React.FC = () => {
                 key={idx}
                 className="bg-[#F8F5EE] rounded-2xl border border-[#E8E2D5] p-6 shadow-2xs flex flex-col justify-between relative overflow-hidden group"
               >
-                {/* Subtle Testimonial Card Watermark */}
-                <div className="absolute -right-6 -bottom-6 opacity-[0.08] pointer-events-none select-none">
-                  <img
-                    src="/assets/aistudio/logo-without-bg.png"
-                    alt=""
-                    className="w-32 h-32 object-contain"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).src =
-                        "/assets/aistudio/logo-high-res_e4f326c0.png";
-                    }}
-                  />
-                </div>
                 <p className="text-xs sm:text-sm text-[#4A453E] leading-relaxed italic mb-6 relative z-10">
                   “{t.quote}”
                 </p>

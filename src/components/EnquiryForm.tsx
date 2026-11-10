@@ -199,19 +199,6 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
 
         {/* Modern Centered Consultation Form Card */}
         <div className="max-w-3xl mx-auto bg-white rounded-3xl border border-[#E8E2D5] shadow-xl overflow-hidden p-6 sm:p-12 relative">
-          {/* Subtle Background Watermark Crest */}
-          <div className="absolute -right-12 -bottom-12 opacity-[0.06] pointer-events-none select-none">
-            <img
-              src="/assets/aistudio/logo-without-bg.png"
-              alt=""
-              className="w-72 h-72 object-contain"
-              onError={(e) => {
-                (e.target as HTMLImageElement).src =
-                  "/assets/aistudio/logo-high-res_e4f326c0.png";
-              }}
-            />
-          </div>
-
           <AnimatePresence mode="wait">
             {isSubmitted && submittedData ? (
               <motion.div

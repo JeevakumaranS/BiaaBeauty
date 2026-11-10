@@ -476,19 +476,6 @@ export const Hero: React.FC<HeroProps> = ({ onViewGallery }) => {
         />
       </div>
 
-      {/* Watermark Crest in Bottom-Left Corner Matching Mockup */}
-      <div className="absolute -left-6 -bottom-6 pointer-events-none select-none z-10 opacity-25">
-        <img
-          src="/assets/aistudio/logo-without-bg.png"
-          alt=""
-          className="w-72 sm:w-80 h-72 sm:h-80 object-contain filter contrast-125"
-          onError={(e) => {
-            (e.target as HTMLImageElement).src =
-              "/assets/aistudio/logo-high-res_e4f326c0.png";
-          }}
-        />
-      </div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           

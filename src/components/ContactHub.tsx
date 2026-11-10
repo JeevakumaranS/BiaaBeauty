@@ -33,18 +33,6 @@ export const ContactHub: React.FC = () => {
       id="contact"
       className="py-12 md:py-28 bg-[#FAF8F5] border-b border-[#E8E2D5] relative overflow-hidden"
     >
-      {/* Delicate Section Background Watermark */}
-      <div className="absolute -left-16 top-16 opacity-[0.05] pointer-events-none select-none hidden md:block">
-        <img
-          src="/assets/aistudio/logo-without-bg.png"
-          alt=""
-          className="w-96 h-96 object-contain"
-          onError={(e) => {
-            (e.target as HTMLImageElement).src =
-              "/assets/aistudio/logo-high-res_e4f326c0.png";
-          }}
-        />
-      </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-8 md:mb-14">
@@ -66,7 +54,7 @@ export const ContactHub: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="font-serif-luxury text-3xl sm:text-4xl lg:text-5xl font-normal text-[#292824] tracking-tight"
           >
-            Visit BIAA BEAUTY Atelier
+            Visit BIAA BEAUTY
           </motion.h2>
 
           <motion.p
@@ -84,7 +72,6 @@ export const ContactHub: React.FC = () => {
 
         {/* 2-Column: Google Map View (Left) & Studio Address Hub (Right) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
-          
           {/* Left Column: Interactive Google Map View (7 Cols) */}
           <div className="lg:col-span-7 bg-[#FCFAF7] rounded-3xl border border-[#E8E2D5] overflow-hidden shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col min-h-[340px] lg:min-h-[520px]">
             {/* Embedded Google Maps Frame */}
@@ -122,18 +109,6 @@ export const ContactHub: React.FC = () => {
 
           {/* Right Column: Studio Address & Connectivity Hub (5 Cols) */}
           <div className="lg:col-span-5 bg-[#FCFAF7] rounded-3xl border border-[#E8E2D5] p-5 sm:p-9 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative overflow-hidden">
-            {/* Delicate Watermark Logo */}
-            <div className="absolute -right-10 -bottom-10 opacity-15 pointer-events-none select-none">
-              <img
-                src="/assets/aistudio/logo-without-bg.png"
-                alt=""
-                className="w-64 h-64 object-contain"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src =
-                    "/assets/aistudio/logo-high-res_e4f326c0.png";
-                }}
-              />
-            </div>
             <div>
               <div className="flex items-center justify-between gap-3 mb-4">
                 <div className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#8C7449]">
@@ -151,7 +126,9 @@ export const ContactHub: React.FC = () => {
               </h3>
 
               <p className="text-xs text-[#68625B] leading-relaxed mb-5">
-                Our bespoke bridal studio in Thindal, Erode. Visit us for private 1-on-1 shade matching, hair trial styling, and saree pre-pleating.
+                Our bespoke bridal studio in Thindal, Erode. Visit us for
+                private 1-on-1 shade matching, hair trial styling, and saree
+                pre-pleating.
               </p>
 
               {/* Exact Address Box */}
@@ -168,7 +145,9 @@ export const ContactHub: React.FC = () => {
                     {copied ? (
                       <>
                         <Check className="w-3.5 h-3.5 text-emerald-600" />
-                        <span className="text-emerald-600 font-semibold">Copied</span>
+                        <span className="text-emerald-600 font-semibold">
+                          Copied
+                        </span>
                       </>
                     ) : (
                       <>
@@ -187,19 +166,29 @@ export const ContactHub: React.FC = () => {
               <div className="grid grid-cols-3 gap-2.5 mb-6">
                 <div className="bg-[#F8F5EE] border border-[#E8E2D5] rounded-xl p-3 text-left">
                   <Sparkles className="w-3.5 h-3.5 text-[#C49E60] mb-1.5" />
-                  <div className="text-[11px] font-semibold text-[#292824]">Daylight Vanity</div>
-                  <div className="text-[10px] text-[#68625B]">Calibrated light</div>
+                  <div className="text-[11px] font-semibold text-[#292824]">
+                    Daylight Vanity
+                  </div>
+                  <div className="text-[10px] text-[#68625B]">
+                    Calibrated light
+                  </div>
                 </div>
 
                 <div className="bg-[#F8F5EE] border border-[#E8E2D5] rounded-xl p-3 text-left">
                   <Shield className="w-3.5 h-3.5 text-[#C49E60] mb-1.5" />
-                  <div className="text-[11px] font-semibold text-[#292824]">Private Suite</div>
-                  <div className="text-[10px] text-[#68625B]">1-on-1 trials</div>
+                  <div className="text-[11px] font-semibold text-[#292824]">
+                    Private Suite
+                  </div>
+                  <div className="text-[10px] text-[#68625B]">
+                    1-on-1 trials
+                  </div>
                 </div>
 
                 <div className="bg-[#F8F5EE] border border-[#E8E2D5] rounded-xl p-3 text-left">
                   <Car className="w-3.5 h-3.5 text-[#C49E60] mb-1.5" />
-                  <div className="text-[11px] font-semibold text-[#292824]">Easy Parking</div>
+                  <div className="text-[11px] font-semibold text-[#292824]">
+                    Easy Parking
+                  </div>
                   <div className="text-[10px] text-[#68625B]">Bridal party</div>
                 </div>
               </div>
@@ -216,7 +205,9 @@ export const ContactHub: React.FC = () => {
                 {/* Glowing light beam sweep */}
                 <div className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/50 to-transparent -skew-x-12 -translate-x-full group-hover/btn:translate-x-[300%] transition-transform duration-1000 ease-out pointer-events-none" />
                 <Navigation className="w-4 h-4 text-[#8C7449] group-hover/btn:text-white transition-colors relative z-10" />
-                <span className="relative z-10">Get Directions in Google Maps</span>
+                <span className="relative z-10">
+                  Get Directions in Google Maps
+                </span>
                 <ExternalLink className="w-3.5 h-3.5 text-[#8C7449] group-hover/btn:text-white transition-colors relative z-10" />
               </a>
 
